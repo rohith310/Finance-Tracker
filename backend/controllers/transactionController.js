@@ -1,4 +1,5 @@
 const Transaction = require('../models/transactionModel');
+const { formatTransactionForFrontend, formatTransactionForDb, toDbCase } = require('../utils/caseUtils');
 
 // Get all transactions for authenticated user
 exports.getAllTransactions = async (req, res) => {
@@ -8,8 +9,8 @@ exports.getAllTransactions = async (req, res) => {
         // Build filter object
         const filter = { userId: req.user._id };
         
-        if (type) filter.type = type;
-        if (category) filter.category = category;
+        if (type) filter.type = toDbCase(type);
+        if (category) filter.category = toDbCase(category);
         if (startDate || endDate) {
             filter.date = {};
             if (startDate) filter.date.$gte = new Date(startDate);
@@ -25,8 +26,11 @@ exports.getAllTransactions = async (req, res) => {
 
         const total = await Transaction.countDocuments(filter);
 
+        // Format transactions for frontend
+        const formattedTransactions = transactions.map(formatTransactionForFrontend);
+
         res.json({
-            transactions,
+            transactions: formattedTransactions,
             pagination: {
                 page: parseInt(page),
                 limit: parseInt(limit),
@@ -52,7 +56,7 @@ exports.getTransactionById = async (req, res) => {
             return res.status(404).json({ message: 'Transaction not found' });
         }
 
-        res.json(transaction);
+        res.json(formatTransactionForFrontend(transaction));
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
@@ -71,19 +75,22 @@ exports.createTransaction = async (req, res) => {
             });
         }
 
+        // Convert frontend data to database format
+        const dbData = formatTransactionForDb(req.body);
+
         const transaction = new Transaction({
             userId: req.user._id,
-            amount,
-            type,
-            category,
-            description,
-            date: date || new Date(),
-            paymentMethod,
-            tags
+            amount: dbData.amount,
+            type: dbData.type,
+            category: dbData.category,
+            description: dbData.description,
+            date: dbData.date || new Date(),
+            paymentMethod: dbData.paymentMethod,
+            tags: dbData.tags
         });
 
         await transaction.save();
-        res.status(201).json(transaction);
+        res.status(201).json(formatTransactionForFrontend(transaction));
     } catch (error) {
         console.error(error);
         if (error.name === 'ValidationError') {
@@ -96,7 +103,9 @@ exports.createTransaction = async (req, res) => {
 // Update transaction
 exports.updateTransaction = async (req, res) => {
     try {
-        const { amount, type, category, description, date, paymentMethod, tags } = req.body;
+        // Convert frontend data to database format
+        const dbData = formatTransactionForDb(req.body);
+        const { amount, type, category, description, date, paymentMethod, tags } = dbData;
 
         // Build update object with only provided fields
         const updateFields = {};
@@ -118,7 +127,7 @@ exports.updateTransaction = async (req, res) => {
             return res.status(404).json({ message: 'Transaction not found' });
         }
 
-        res.json(transaction);
+        res.json(formatTransactionForFrontend(transaction));
     } catch (error) {
         console.error(error);
         if (error.name === 'ValidationError') {
