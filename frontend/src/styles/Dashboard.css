@@ -1,0 +1,575 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #F9FAFC;
+  position: relative;
+}
+
+.dashboard-content {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2B2D42;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.loading-message {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #EBEBEB;
+  transition: all 0.3s ease;
+  background: #FFFFFF;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.summary-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8D99AE;
+}
+
+.summary-card p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.income-card p {
+  color: #00BFA5;
+}
+
+.expense-card p {
+  color: #FF1744;
+}
+
+.balance-card p {
+  color: #1979FF;
+}
+
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 1rem;
+}
+
+.chart-container {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 1rem 1rem 1.5rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #EBEBEB;
+  transition: all 0.3s ease;
+  height: 300px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.chart-container:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2B2D42;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-container.large {
+  height: 320px;
+  min-width: 0;
+  margin-right: 0;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.monthly-summary {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #EBEBEB;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.monthly-summary:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.monthly-summary h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2B2D42;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #F9FAFC 0%, #EBEBEB 50%);
+  border-radius: 12px;
+  font-weight: 600;
+  color: #2B2D42;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  border: 1px solid #EBEBEB;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #F9FAFC;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #FFFFFF;
+}
+
+.summary-row:hover {
+  background: #F9FAFC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.summary-row .income {
+  color: #00BFA5;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.summary-row .expense {
+  color: #FF1744;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 1rem;
+}
+
+.chart-container {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 1rem 1rem 1.5rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #EBEBEB;
+  transition: all 0.3s ease;
+  height: 300px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.chart-container:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2B2D42;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-container.large {
+  height: 320px;
+  min-width: 0;
+  margin-right: 0;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.monthly-summary {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #EBEBEB;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.monthly-summary:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.monthly-summary h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2B2D42;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #F9FAFC 0%, #EBEBEB 50%);
+  border-radius: 12px;
+  font-weight: 600;
+  color: #2B2D42;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  border: 1px solid #EBEBEB;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #F9FAFC;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #FFFFFF;
+}
+
+.summary-row:hover {
+  background: #F9FAFC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.summary-row .income {
+  color: #00BFA5;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.summary-row .expense {
+  color: #FF1744;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.chart-options {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #EBEBEB;
+  transition: all 0.3s ease;
+}
+
+.chart-options h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2B2D42;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-option-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.chart-option-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 2px solid #EBEBEB;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #F9FAFC;
+}
+
+.chart-option-box:hover {
+  border-color: #1979FF;
+  background: rgba(25, 121, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(25, 121, 255, 0.15);
+}
+
+.chart-option-box.active {
+  border-color: #1979FF;
+  background: rgba(25, 121, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(25, 121, 255, 0.2);
+}
+
+.option-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-content h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2B2D42;
+}
+
+.option-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #8D99AE;
+}
+
+.option-toggle {
+  flex-shrink: 0;
+}
+
+.option-toggle input[type="radio"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: #1979FF;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .chart-container.large {
+    height: 280px;
+    margin-right: 0;
+  }
+  
+  .chart-container {
+    height: 280px;
+  }
+}
+
+@media (max-width: 900px) {
+  .charts-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .chart-container {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 1rem;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .chart-container {
+    min-width: 0;
+    width: 100%;
+    height: 250px;
+    padding: 0.75rem 0.75rem 1rem 0.75rem;
+  }
+  
+  .chart-container.large {
+    height: 250px;
+    margin-right: 0;
+  }
+  
+  .chart-title {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .summary-header,
+  .summary-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .summary-header span,
+  .summary-row span {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .summary-header span:last-child,
+  .summary-row span:last-child {
+    border-bottom: none;
+  }
+  
+  .chart-options {
+    padding: 1rem;
+  }
+  
+  .chart-option-boxes {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .chart-option-box {
+    padding: 1rem;
+  }
+  
+  .option-icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dark Mode Styles */
+:root.dark-mode .dashboard-page {
+  background: #1A1A1A;
+}
+
+:root.dark-mode .dashboard-title {
+  color: #FFFFFF;
+}
+
+:root.dark-mode .summary-card,
+:root.dark-mode .chart-container,
+:root.dark-mode .monthly-summary,
+:root.dark-mode .chart-options {
+  background: #2A2A2A;
+  border-color: #404040;
+}
+
+:root.dark-mode .summary-card h3,
+:root.dark-mode .chart-title,
+:root.dark-mode .monthly-summary h3,
+:root.dark-mode .chart-options h3 {
+  color: #FFFFFF;
+}
+
+:root.dark-mode .summary-header {
+  background: linear-gradient(135deg, #404040 0%, #606060 50%);
+  color: #FFFFFF;
+}
+
+:root.dark-mode .summary-row {
+  background: #2A2A2A;
+  border-color: #404040;
+  color: #E2E8F0;
+}
+
+:root.dark-mode .summary-row:hover {
+  background: #404040;
+}
+
+:root.dark-mode .chart-option-box {
+  background: #404040;
+  border-color: #606060;
+}
+
+:root.dark-mode .chart-option-box:hover {
+  border-color: #1979FF;
+  background: rgba(25, 121, 255, 0.2);
+}
+
+:root.dark-mode .chart-option-box.active {
+  background: rgba(25, 121, 255, 0.3);
+}
+
+:root.dark-mode .option-content h4 {
+  color: #FFFFFF;
+}
+
+:root.dark-mode .option-content p {
+  color: #B0BEC5;
+}
+:root.dark-mode .option-content p {
+  color: #8D99AE;
+}
+
