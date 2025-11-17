@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../context/Authcontext";
+import { AuthContext } from "../context/AuthContext";
 import API from "../api";
 import Navbar from "../components/Navbar";
 import '../styles/Dashboard.css';
