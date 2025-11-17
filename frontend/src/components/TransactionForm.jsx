@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../context/Authcontext";
+import { AuthContext } from "../context/AuthContext";
 import API from "../api";
 import { useToast } from "../context/ToastContext";
 import '../styles/TransactionForm.css';
