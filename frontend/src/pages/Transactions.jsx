@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import API from "../api";
-import { AuthContext } from "../context/Authcontext";
+import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import TransactionForm from "../components/TransactionForm";
 import { useToast } from "../context/ToastContext";
